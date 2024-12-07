@@ -1,0 +1,61 @@
+{
+  "publisher": "qzda",
+  "name": "mapping-variable-name",
+  "displayName": "Mapping Variable Name",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Mapping Variable Name for VS Code",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qzda/vscode-mapping-variable-name"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/index.cjs",
+  "preview": true,
+  "icon": "res/logo.png",
+  "engines": {
+    "vscode": "^1.71.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "mapping-variable-name.reload",
+        "title": "Reload JSON file",
+        "category": "Mapping Variable Name"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Mapping Variable Name",
+      "properties": {
+        "mapping-variable-name.disable": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable the Mapping Variable Name extension"
+        },
+        "mapping-variable-name.jsonPath": {
+          "type": "string",
+          "default": "./mapping-variable-name.json",
+          "description": "The path of the JSON file"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "bun run ./scripts/build.ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.71.0",
+    "@types/node": "^16.0.0"
+  },
+  "dependencies": {
+    "@qzda/prolog": "latest"
+  }
+}
